@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="TextProcessing/TextProcessing.vcxproj" Id="e68d0ea8-53f0-4654-9f94-54a90d06de49" />
+</Solution>
