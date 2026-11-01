@@ -24,9 +24,10 @@ The current implementation uses Microsoft CRT functions (`fopen_s` and `strtok_s
 
 ## Build and run
 
-1. Clone the repository:
+1. Install Git LFS, then clone the repository:
 
    ```powershell
+   git lfs install
    git clone https://github.com/Eduard-Stefan/ISD.git
    cd ISD
    ```
@@ -44,15 +45,17 @@ The application locates its input relative to the executable. Keep the `Resource
 
 ## Input files
 
-The repository includes three datasets in `TextProcessing/TextProcessing/Resource Files/`:
+The repository includes five datasets in `TextProcessing/TextProcessing/Resource Files/`:
 
 | File | Nominal size |
 | --- | --- |
 | `input_10MB.txt` | 10 MB |
 | `input_50MB.txt` | 50 MB |
 | `input_100MB.txt` | 100 MB |
+| `input_200MB.txt` | 200 MB |
+| `input_400MB.txt` | 400 MB |
 
-The default input is `input_100MB.txt`. Text is processed byte by byte using C character classification; Unicode-aware word segmentation is not implemented.
+The default input is `input_400MB.txt`. Text is processed byte by byte using C character classification; Unicode-aware word segmentation is not implemented.
 
 ## Execution times
 
@@ -63,6 +66,8 @@ The following execution times were reported from runs in Visual Studio:
 | `input_10MB.txt` | 1,642.33 |
 | `input_50MB.txt` | 9,006.19 |
 | `input_100MB.txt` | 14,271.2 |
+| `input_200MB.txt` | 27,454.8 |
+| `input_400MB.txt` | 53,978.1 |
 
 The application's internal timer includes file reading, text preparation, word counting, and merging, and excludes printing the results.
 
@@ -74,7 +79,7 @@ Change these definitions near the top of `TextProcessing/TextProcessing/TextProc
 
 ```cpp
 #define THREAD_COUNT 4
-#define INPUT_FILE "input_100MB.txt"
+#define INPUT_FILE "input_400MB.txt"
 ```
 
 - Set `THREAD_COUNT` to a positive integer to choose the number of worker threads.
@@ -108,5 +113,7 @@ ISD/
         └── Resource Files/
             ├── input_10MB.txt
             ├── input_50MB.txt
-            └── input_100MB.txt
+            ├── input_100MB.txt
+            ├── input_200MB.txt
+            └── input_400MB.txt
 ```

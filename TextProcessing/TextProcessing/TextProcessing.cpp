@@ -11,7 +11,7 @@
 using namespace std;
 
 #define THREAD_COUNT 4
-#define INPUT_FILE "input_100MB.txt"
+#define INPUT_FILE "input_400MB.txt"
 
 struct Worker
 {

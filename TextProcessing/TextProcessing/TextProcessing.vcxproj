@@ -154,6 +154,8 @@ copy /Y "%(FullPath)" "$(TargetDir)Resource Files\%(Filename)%(Extension)"</Comm
     <CustomBuild Include="Resource Files\input_10MB.txt" />
     <CustomBuild Include="Resource Files\input_50MB.txt" />
     <CustomBuild Include="Resource Files\input_100MB.txt" />
+    <CustomBuild Include="Resource Files\input_200MB.txt" />
+    <CustomBuild Include="Resource Files\input_400MB.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
