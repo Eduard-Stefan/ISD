@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
 {
     auto start = chrono::steady_clock::now();
 
-    filesystem::path path = filesystem::path(argv[0]).parent_path() / "Resource Files" / INPUT_FILE;
+    filesystem::path path = filesystem::path(argv[0]).parent_path() / "input" / INPUT_FILE;
     FILE* file = NULL;
     if (fopen_s(&file, path.string().c_str(), "rb") != 0)
     {

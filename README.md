@@ -34,18 +34,18 @@ The current implementation uses Microsoft CRT functions (`fopen_s` and `strtok_s
 
 2. Open `TextProcessing/TextProcessing.slnx` in Visual Studio.
 3. Select **Release** and **x64** to build the optimized executable used in the command below.
-4. Build the solution with **Ctrl+Shift+B**. The build copies the included input files into a `Resource Files` folder beside the executable.
+4. Build the solution with **Ctrl+Shift+B**. The build copies the included input files into a `input` folder beside the executable.
 5. Run the application with **Ctrl+F5**, or run it from the repository root in PowerShell:
 
    ```powershell
    .\TextProcessing\x64\Release\TextProcessing.exe
    ```
 
-The application locates its input relative to the executable. Keep the `Resource Files` folder beside it if you move the executable.
+The application locates its input relative to the executable. Keep the `input` folder beside it if you move the executable.
 
 ## Input files
 
-The repository includes five datasets in `TextProcessing/TextProcessing/Resource Files/`:
+The repository includes five datasets in `input/`:
 
 | File | Nominal size |
 | --- | --- |
@@ -61,13 +61,13 @@ The default input is `input_400MB.txt`. Text is processed byte by byte using C c
 
 The following execution times were reported from runs in Visual Studio:
 
-| Input file | Execution time (ms) |
-| --- | ---: |
-| `input_10MB.txt` | 1,642.33 |
-| `input_50MB.txt` | 9,006.19 |
-| `input_100MB.txt` | 14,271.2 |
-| `input_200MB.txt` | 27,454.8 |
-| `input_400MB.txt` | 53,978.1 |
+| Input file | TextProcessing (ms) | TextProcessingMapReduce (ms) |
+| --- | ---: | ---: |
+| `input_10MB.txt` | 2,022.57 | 2,086.39 |
+| `input_50MB.txt` | 9,261.16 | 9,316.5 |
+| `input_100MB.txt` | 17,144.2 | 18,532.7 |
+| `input_200MB.txt` | 35,563.4 | 36,521.7 |
+| `input_400MB.txt` | 70,137.8 | 65,854.9 |
 
 The application's internal timer includes file reading, text preparation, word counting, and merging, and excludes printing the results.
 
@@ -85,7 +85,7 @@ Change these definitions near the top of `TextProcessing/TextProcessing/TextProc
 - Set `THREAD_COUNT` to a positive integer to choose the number of worker threads.
 - Set `INPUT_FILE` to one of the included filenames to choose the dataset.
 
-These settings are selected at compile time; the application does not accept command-line options for them. To use a custom dataset, add it to the project's resource build items so it is copied during the build, or place it manually in the executable's `Resource Files` folder.
+These settings are selected at compile time; the application does not accept command-line options for them. To use a custom dataset, add it to the project's resource build items so it is copied during the build, or place it manually in the executable's `input` folder.
 
 For timing comparisons, use the same dataset and build configuration, change the thread count, and repeat each measurement. The reported time covers the whole processing pipeline, including the sequential reading and preparation steps.
 
@@ -101,19 +101,6 @@ Each run prints:
 
 ## Project structure
 
-```text
-ISD/
-├── README.md
-└── TextProcessing/
-    ├── TextProcessing.slnx
-    └── TextProcessing/
-        ├── TextProcessing.cpp
-        ├── TextProcessing.vcxproj
-        ├── TextProcessing.vcxproj.filters
-        └── Resource Files/
-            ├── input_10MB.txt
-            ├── input_50MB.txt
-            ├── input_100MB.txt
-            ├── input_200MB.txt
-            └── input_400MB.txt
-```
+- `TextProcessing/`: original word counter and Visual Studio solution.
+- `TextProcessingMapReduce/`: MapReduce word counter and Visual Studio solution.
+- `input/`: shared datasets copied beside each executable during its build.

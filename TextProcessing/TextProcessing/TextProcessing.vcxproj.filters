@@ -20,22 +20,19 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="Resource Files\input.txt">
+    <CustomBuild Include="..\..\input\input_10MB.txt">
       <Filter>Resource Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Resource Files\input_10MB.txt">
+    <CustomBuild Include="..\..\input\input_50MB.txt">
       <Filter>Resource Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Resource Files\input_50MB.txt">
+    <CustomBuild Include="..\..\input\input_100MB.txt">
       <Filter>Resource Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Resource Files\input_100MB.txt">
+    <CustomBuild Include="..\..\input\input_200MB.txt">
       <Filter>Resource Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Resource Files\input_200MB.txt">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="Resource Files\input_400MB.txt">
+    <CustomBuild Include="..\..\input\input_400MB.txt">
       <Filter>Resource Files</Filter>
     </CustomBuild>
   </ItemGroup>

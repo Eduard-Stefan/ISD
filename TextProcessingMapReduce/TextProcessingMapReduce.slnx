@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="TextProcessingMapReduce/TextProcessingMapReduce.vcxproj" Id="df9a5d6c-a880-45a6-b78b-02878c0242f0" />
+</Solution>

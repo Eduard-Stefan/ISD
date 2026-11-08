@@ -1,2 +1,2 @@
-TextProcessing/TextProcessing/Resource[[:space:]]Files/input_200MB.txt filter=lfs diff=lfs merge=lfs -text
-TextProcessing/TextProcessing/Resource[[:space:]]Files/input_400MB.txt filter=lfs diff=lfs merge=lfs -text
+input/input_200MB.txt filter=lfs diff=lfs merge=lfs -text
+input/input_400MB.txt filter=lfs diff=lfs merge=lfs -text

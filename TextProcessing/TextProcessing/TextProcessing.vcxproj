@@ -145,17 +145,17 @@
     <CustomBuild>
       <FileType>Document</FileType>
       <Message>Copying input text to the output folder</Message>
-      <Command>if not exist "$(TargetDir)Resource Files" mkdir "$(TargetDir)Resource Files"
-copy /Y "%(FullPath)" "$(TargetDir)Resource Files\%(Filename)%(Extension)"</Command>
-      <Outputs>$(TargetDir)Resource Files\%(Filename)%(Extension)</Outputs>
+      <Command>if not exist "$(TargetDir)input" mkdir "$(TargetDir)input"
+copy /Y "%(FullPath)" "$(TargetDir)input\%(Filename)%(Extension)"</Command>
+      <Outputs>$(TargetDir)input\%(Filename)%(Extension)</Outputs>
     </CustomBuild>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="Resource Files\input_10MB.txt" />
-    <CustomBuild Include="Resource Files\input_50MB.txt" />
-    <CustomBuild Include="Resource Files\input_100MB.txt" />
-    <CustomBuild Include="Resource Files\input_200MB.txt" />
-    <CustomBuild Include="Resource Files\input_400MB.txt" />
+    <CustomBuild Include="..\..\input\input_10MB.txt" />
+    <CustomBuild Include="..\..\input\input_50MB.txt" />
+    <CustomBuild Include="..\..\input\input_100MB.txt" />
+    <CustomBuild Include="..\..\input\input_200MB.txt" />
+    <CustomBuild Include="..\..\input\input_400MB.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
